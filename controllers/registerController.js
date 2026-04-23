@@ -8,6 +8,7 @@ const handleNewUser = async (req, res) => {
     // check for duplicate usernames in the db
     const duplicate = await User.findOne({ username: user }).exec();
     if (duplicate) return res.sendStatus(409); //Conflict 
+    // console.log("Request ===> ",req);
 
     try {
         //encrypt the password
